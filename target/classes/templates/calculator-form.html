@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Calculator Form</title>
+</head>
+<body>
+	<p>Enter two numbers:</p>
+	<form action="/calculate" method="post">
+		<label for="num1">Number 1:</label> <input type="text" id="num1"
+			name="num1" oninput="validateInputs()"><br> <br> <label
+			for="num2">Number 2:</label> <input type="text" id="num2" name="num2"
+			oninput="validateInputs()"><br> <br>
+		<button type="submit" id="addButton" name="action" value="add"
+			disabled>Add</button>
+		<button type="submit" id="subtractButton" name="action"
+			value="difference" disabled>Subtract</button>
+		<button type="submit" id="multiplyButton" name="action"
+			value="multiply" disabled>Multiply</button>
+		<button type="submit" id="divideButton" name="action" value="divide"
+			disabled>Divide</button>
+	</form>
+
+	<script>
+		function validateInputs() {
+			var num1 = document.getElementById('num1').value.trim();
+			var num2 = document.getElementById('num2').value.trim();
+			var addButton = document.getElementById('addButton');
+			var subtractButton = document.getElementById('subtractButton');
+			var multiplyButton = document.getElementById('multiplyButton');
+			var divideButton = document.getElementById('divideButton');
+
+			if (num1 !== '' && num2 !== '' && !isNaN(num1) && !isNaN(num2)) {
+				addButton.disabled = false;
+				subtractButton.disabled = false;
+				multiplyButton.disabled = false;
+				divideButton.disabled = false;
+			} else {
+				addButton.disabled = true;
+				subtractButton.disabled = true;
+				multiplyButton.disabled = true;
+				divideButton.disabled = true;
+			}
+		}
+	</script>
+</body>
+</html>
