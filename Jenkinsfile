@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'mvn clean test'
+                sh '/usr/local/apache-maven-3.9.6/bin/mvn clean test'
             }
         }
         stage('Test Results') {
